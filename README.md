@@ -36,8 +36,7 @@ _Si queresmos correr el server en producción_
 npm run prod
 ```
 
-
-_Si queresmos correr el server en desarrollo (funcionará con el ng serve del FRONT)_
+_Si queremos correr el server en desarrollo (funcionará con el ng serve del FRONT)_
 
 ```
 npm run dev
