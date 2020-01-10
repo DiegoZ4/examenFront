@@ -1,7 +1,7 @@
 # Examen Front End
 
 _Proyecto realizado a modo de examen. El mismo cuenta con un APIREST realizado en NODEJS que trabaja con una pequeña base de datos no secuancial soportada en MONGODB. La aplicación fue realizada en ANGULAR y cuenta con un CRUD y la lista de hoteles.
-Le agregue al proyecto una HOME para que se pueda navegar dentro de la aplicación, por esta razón le agregue al navbar un botón para volver al HOME._
+Le agregue al proyecto una HOME para que se pueda navegar dentro de la aplicación, por esta razón el navbar cuenta con un botón para volver al HOME._
 
 
 ## Pre-requisitos 📋
@@ -10,7 +10,7 @@ _Tener instalados NPM, MONGO, GIT y ANGULAR CLI_
 
 ## Comenzando 🚀
 
-_Es importante que este corriengo MONGO al momento de lanzar el server. Puedes clonar el repositorio con el siguiente comando:_
+_Es importante que este corriendo MONGO al momento de lanzar el server. Puedes clonar el repositorio con el siguiente comando:_
 
 ```
 git clone https://github.com/DiegoZ4/examenFront.git
