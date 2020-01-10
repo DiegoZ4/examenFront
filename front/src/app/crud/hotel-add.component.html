@@ -22,7 +22,8 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Nombre</label>
         <input type="text" name="name" #name="ngModel" [(ngModel)]="hotel.name" class="form-control" required>
-        <small *ngIf="!name.valid && name.touched" class="form-text text-muted">El nombre es obligatorio</small>
+        <small *ngIf="!name.valid && name.touched" class="form-text text-muted"
+               style="color:red !important">El nombre es obligatorio</small>
       </div>
     </div>
   </div>
@@ -32,7 +33,10 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Estrellas</label>
         <input type="number" maxlength="4" name="stars" #stars="ngModel" [(ngModel)]="hotel.stars" class="form-control" required>
-        <small *ngIf="!stars.valid && stars.touched" class="form-text text-muted">Las estrellas son obligatorias</small>
+        <small *ngIf="stars.value > 5 && stars.touched " class="form-text text-muted"
+               style="color:red !important">Las estrellas no pueden ser mayores de 5</small>
+        <small *ngIf="!stars.valid && stars.touched " class="form-text text-muted"
+               style="color:red !important">Las estrellas son obligatorias</small>
       </div>
     </div>
   </div>
@@ -42,7 +46,8 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Precio</label>
         <input type="text" name="price" #price="ngModel" [(ngModel)]="hotel.price" class="form-control" required>
-        <small *ngIf="!price.valid && price.touched" class="form-text text-muted">El precio es obligatorio</small>
+        <small *ngIf="!price.valid && price.touched" class="form-text text-muted"
+               style="color:red !important">El precio es obligatorio</small>
       </div>
     </div>
   </div>
