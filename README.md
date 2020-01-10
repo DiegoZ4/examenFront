@@ -57,7 +57,8 @@ npm install
 
 _Ejecutamos la compilacion que se conecta al API de desarrollo_
 
-```ng serve -o
+```
+ng serve -o
 ```
 
 _Compilar la APP para producción. Generará los archivos compilados en la carpeta /dist_
