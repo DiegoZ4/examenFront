@@ -43,27 +43,11 @@ export class HotelComponent implements OnInit {
 
   getHotels(){
 
-    // this._route.params
-    //     .pipe( map(params => params) )
-    //     .subscribe( data => {
-    //
-    //       this._hotelService.getHotels('')
-    //           .subscribe( (resp:any) => {
-    //             console.log(resp);
-    //             this.hoteles = resp.hoteles;
-    //           },
-    //           error =>{
-    //             console.log(error);
-    //           })
-    //
-    //     })
-
     this._hotelService.getHotels(this.contador)
         .subscribe ( (resp:any) =>{
           for(let newHotel of resp.hoteles){
             this.hoteles.push(newHotel)
           }
-          // this.hoteles = resp.hoteles;
 
           console.log( this.hoteles);
           console.log( typeof this.hoteles);
@@ -73,7 +57,9 @@ export class HotelComponent implements OnInit {
   }
 
   getHotelsByStars(stars,elem){
-    console.log(elem.target)
+
+    this.termino = '';
+
     var group = $('.checks');
     for (var i=0; i<group.length; i++) {
         console.log(group[i]);
@@ -93,8 +79,11 @@ export class HotelComponent implements OnInit {
 
   }
 
+  cleanStars(){
+    $('.checks').prop('checked',false);
+  }
+
   searchHotel(){
-    console.log(this.termino.length);
 
     this._hotelService.searchHotels( this.termino, '' )
       .subscribe( (resp:any) => {

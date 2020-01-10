@@ -10,7 +10,8 @@
         Nombre del hotel
       </div>
       <div class="line2">
-        <input type="text" name="" value="" placeholder="Ingrese el nombre del hotel" [(ngModel)]="termino">
+        <input type="text" name="" value="" placeholder="Ingrese el nombre del hotel" 
+               [(ngModel)]="termino" (click)="cleanStars()">
         <button type="button" name="button" (click)="searchHotel()" class="alMundoBtn">Aceptar</button>
       </div>
     </div>
