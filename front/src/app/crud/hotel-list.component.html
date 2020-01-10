@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row pt-5 pb-4">
+    <div class="col-8">
+      <h4> {{ titulo }}</h4>
+    </div>
+    <div class="col-4 text-right">
+      <button type="button" class="btn btn-success" routerLink="/crud/hoteles-add">Añadir Hotel</button>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Buscar un hotel</label>
+        <input type="text" class="form-control" 
+               (keyup)="searchHotel()" [(ngModel)]="termino">
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col" class="text-center">Estrellas</th>
+            <th scope="col" class="text-center">Precio</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hotel of hoteles">
+            <th scope="row"> {{ hotel.name}}</th>
+            <td class="text-center">{{ hotel.stars }}</td>
+            <td class="text-center">${{ hotel.price }}</td>
+            <td class="text-right">
+                <button type="button" class="btn btn-success mr-1"
+                        [routerLink]="['/crud/hoteles-edit', hotel._id]">Editar</button>
+                <button type="button" class="btn btn-danger"
+                        (click)="onDeleteConfirm(hotel._id, hotel.name)">Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>  
+    </div>
+    
+    <div class="col-12 text-right" *ngIf="!termino">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination text-right">
+          <li class="page-item"><a class="page-link" [routerLink]="['/crud/hoteles-list', prev_page]"> << </a></li>
+          
+          <li class="page-item"><a class="page-link" [routerLink]="['/crud/hoteles-list', next_page]"> >> </a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar Hotel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro que quieres eliminar el hotel <b>{{ hotelToDelete }}</b>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger"
+                  (click)="onDeleteHotel()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

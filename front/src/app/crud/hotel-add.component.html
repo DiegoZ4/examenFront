@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-12">
+      <h4> {{ titulo }}</h4>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <div class="row" *ngIf="alertMessage">
+    <div class="col-12">
+      <div class="alert alert-info">
+        {{ alertMessage }}
+      </div>
+    </div>
+  </div>
+  
+  <form #formHotel="ngForm" (ngSubmit)="onSubmit()">
+    
+  <div class="row">
+    <div class="col-8">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="hotel.name" class="form-control" required>
+        <small *ngIf="!name.valid && name.touched" class="form-text text-muted">El nombre es obligatorio</small>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-8">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Estrellas</label>
+        <input type="number" maxlength="4" name="stars" #stars="ngModel" [(ngModel)]="hotel.stars" class="form-control" required>
+        <small *ngIf="!stars.valid && stars.touched" class="form-text text-muted">Las estrellas son obligatorias</small>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-8">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Precio</label>
+        <input type="text" name="price" #price="ngModel" [(ngModel)]="hotel.price" class="form-control" required>
+        <small *ngIf="!price.valid && price.touched" class="form-text text-muted">El precio es obligatorio</small>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-8">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Comodidades</label>
+        <select multiple class="form-control" name="amenities" #amenities="ngModel" [(ngModel)]="hotel.amenities">
+          <option value="bathrobes">Bathrobes</option>
+          <option value="bathtub">Bathtub</option>
+          <option value="beach-pool-facilities">Beach Pool Facilities</option>
+          <option value="beach">Beach</option>
+          <option value="business-center">Business Center</option>
+          <option value="children-club">Children Club</option>
+          <option value="coffe-maker">Coffe Maker</option>
+          <option value="deep-soaking-bathtub">Deep Soaking Bathtub</option>
+          <option value="fitness-center">Fitness Center</option>
+          <option value="garden">Garden</option>
+          <option value="kitchen-facilities">Kitchen Facilities</option>
+          <option value="newspaper">Kitchen Facilities</option>
+          <option value="nightclub">Nightclub</option>
+          <option value="restaurant">restaurant</option>
+          <option value="safety-box">Safety Box</option>
+          <option value="separate-bredroom">Separate Bredroom</option>
+          <option value="sheets">Sheets</option>            
+        </select>
+        <small class="form-text text-muted">Seleccione una o mas opciones</small>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row" *ngIf="is_edit">
+    <div class="col-12">
+      <div class="image_for_edit" *ngIf="hotel.image && hotel.image != 'null'">
+        <img src="{{ url + '/get-image-hotel/' + hotel.image }}" alt="">
+      </div>
+      
+      <p>
+          <label for="">Sube la imagen del Hotel</label>
+          <input type="file" placeholder="Subir Imagen..." (change)="fileChangeEvent($event)">
+      </p>
+      
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" 
+              [disabled]="!formHotel.form.valid">Guardar</button>
+    </div>
+  </div>
+  
+  </form>
+</div>

@@ -1,0 +1,90 @@
+<div class="contenedor">
+  <div class="sideBar">
+    <div class="titulo">Filtros</div>
+    <div class="tituloMobil" style="display:none" (click)="openMenu()">
+      Filtrar <img src="/assets/images/rowDown.jpg" id="arrow" width="23">
+    </div>
+    <div class="buscador">
+      <div class="line1">
+        <img src="/assets/icons/filters/search.svg" width="20" alt="">
+        Nombre del hotel
+      </div>
+      <div class="line2">
+        <input type="text" name="" value="" placeholder="Ingrese el nombre del hotel" [(ngModel)]="termino">
+        <button type="button" name="button" (click)="searchHotel()" class="alMundoBtn">Aceptar</button>
+      </div>
+    </div>
+    
+    <div class="stars">
+      <div class="line1">
+        <img src="/assets/icons/filters/star_blue.svg" width="20" alt="">
+        Estrellas
+      </div>
+      <div class="lineCheck">
+        <input type="checkbox" class="checks" value="" (change)="getHotelsByStars(5,$event)"> 
+        <img src="/assets/icons/filters/star.svg" width="20" alt=""> 
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+      </div>
+      <div class="lineCheck">
+        <input type="checkbox" class="checks" value="" (change)="getHotelsByStars(4,$event)"> 
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+      </div>
+      <div class="lineCheck">
+        <input type="checkbox" class="checks" value="" (change)="getHotelsByStars(3,$event)">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+      </div>
+      <div class="lineCheck">
+        <input type="checkbox" class="checks" value="" (change)="getHotelsByStars(2,$event)"> 
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+      </div>
+      <div class="lineCheck">
+        <input type="checkbox" class="checks" value="" (change)="getHotelsByStars(1,$event)"> 
+        <img src="/assets/icons/filters/star.svg" width="20" alt="">
+      </div>
+      
+    </div>
+  </div>
+  <div class="listContent">
+    <div class="item" *ngFor="let hotel of hoteles">
+      
+      <div class="img" [ngStyle]="{'background-image':'url(' + url + '/get-image-hotel/' +hotel.image +  ')'}"></div>
+      
+      <div class="info">
+        <div class="titulo">{{ hotel.name }}</div>
+        <div class="stars">
+          <img src="/assets/icons/filters/star.svg" width="20" *ngFor='let in of counter(hotel.stars)'>
+        </div>
+        <div class="amenities">
+          <img *ngFor="let a of hotel.amenities" src="/assets/icons/amenities/{{a}}.svg" width="20" alt="">
+          
+        </div>
+      </div>
+      <div class="infoPrecio">
+        <div class="leyend">Precio por noche por habitación</div>
+        <div class="precio"> <span>ARS</span>{{ hotel.price }}</div>
+        <button type="button" name="button" class="alMundoBtn">Ver hotel</button>
+      </div>
+      <div class="clear"></div>
+    </div>
+    
+    <hr>
+
+    <div 
+          infiniteScroll
+          [infiniteScrollDistance]="2"
+          [infiniteScrollThrottle]="1000"
+          (scrolled)="onScroll()">
+      
+    </div>
+    
+  </div>
+</div>

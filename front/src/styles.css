@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  background-color: #f4f4f4 !important;
+}
+
+.alMundoBtn{
+  color: white;
+  font-weight: 600;
+  background: #144381;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-bottom: 3px solid #00163c;
+  text-align: center;
+}

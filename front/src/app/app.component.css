@@ -1,0 +1,11 @@
+.bg-light{
+  background-color: #144381 !important;
+  border-bottom: 3px solid #5f80a1;
+  height: 90px;
+  color: white;
+}
+
+fa-icon {
+  color: white !important;
+  font-size: 19pt;
+}
