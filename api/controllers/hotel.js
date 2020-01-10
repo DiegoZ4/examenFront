@@ -100,7 +100,7 @@ function getHotelesByStars(req, res) {
 
   Hotel.find({
     stars: stars
-  }).sort('stars').paginate(page, itemsPerPage, (err,hoteles,total) => {
+  }, (err,hoteles,total) => {
     if(err) {
       res.status(500).send({message: "Ha ocurrido un error"});
     }else {
@@ -132,11 +132,12 @@ function searchHoteles(req, res) {
 
   Hotel.find({
     name: {
-      $regex: new RegExp(keyToSearch)
+      $regex : new RegExp(keyToSearch, "i")
+      // $regex: new RegExp(keyToSearch)
     }
   }, {
     __v:0
-  }).paginate(page, itemsPerPage, (err,hoteles,total) => {
+  }, (err,hoteles,total) => {
   // Hotel.find().sort('name').paginate(page, itemsPerPage, (err,hoteles,total) => {
     if(err) {
       console.log(err);
