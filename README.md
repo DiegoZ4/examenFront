@@ -71,8 +71,8 @@ ng build
 ## Algunas observaciones 📌
 
 _1. Para futuras versiones se puede/deberia crear una colleccion de "amenities" y manejar los mismos desde un end point_
-_1. Para futuras versiones se puede/deberia mejorar la carga de imagenes del crud y agregar objetos como spinners y modal, que por cuestion de tiempos no fueron incluidos en esta primera versin_
-
+_2. Para futuras versiones se puede/deberia mejorar la carga de imagenes del crud y agregar objetos como spinners y modal, que por cuestion de tiempos no fueron incluidos en esta primera versión_
+-3. Si necesita cambiar los puertos donde corre la aplicación puede hacerlo en: /api/.env.production y /api/.env.development
 
 ## Autor ✒️
 
